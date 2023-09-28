@@ -1,7 +1,20 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
+import { TypographyCardComponent } from './typography-card-coin.component';
 
-export const CardDataCoinComponent = ({
+interface Props {
+  symbol: string;
+  name: string;
+  nameId: string;
+  rank: number;
+  priceUSD: string;
+  percentChange24h: string;
+  percentChange1h: string;
+  percentChange7d: string;
+  marketCapUSD: string;
+}
+
+export const CardDataCoinComponent: React.FunctionComponent<Props> = ({
   symbol,
   name,
   nameId,
@@ -27,15 +40,9 @@ export const CardDataCoinComponent = ({
         <Typography variant="body1">
           Price (USD): {priceUSD}
         </Typography>
-        <Typography variant="body1">
-          24h Change: {percentChange24h}%
-        </Typography>
-        <Typography variant="body1">
-          1h Change: {percentChange1h}%
-        </Typography>
-        <Typography variant="body1">
-          7d Change: {percentChange7d}%
-        </Typography>
+        <TypographyCardComponent value={percentChange1h} text={'1h Change:'}/>
+        <TypographyCardComponent value={percentChange24h} text={'24h Change:'}/>
+        <TypographyCardComponent value={percentChange7d} text={'7d Change:'}/>
         <Typography variant="body1">
           Market Cap (USD): {marketCapUSD}
         </Typography>

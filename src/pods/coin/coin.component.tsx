@@ -5,17 +5,19 @@ import {
   TabListComponent,
   TabPanelComponent,
 } from 'common/components';
-import { Coin } from './coin.vm';
+import { Coin, MarketsForCoin } from './coin.vm';
 import { CardDataCoinComponent } from './components';
-import { LineChartComponent } from 'common/components/line-chart';
-import * as classes from './coin.styles';
+import { BarChart } from 'common/components/bar-chart';
+import { CHART_OPTIONS } from './coin.constants';
 
 interface Props {
   coin: Coin;
+  marketsForCoin: MarketsForCoin[]
 }
 
 export const CoinComponent: React.FunctionComponent<Props> = ({
   coin,
+  marketsForCoin
 }) => {
   const [tab, setTab] = React.useState(0);
   return (
@@ -30,7 +32,14 @@ export const CoinComponent: React.FunctionComponent<Props> = ({
         <CardDataCoinComponent {...coin}/>
       </TabPanelComponent>
       <TabPanelComponent value={tab} index={1}>
-        <LineChartComponent />
+        <BarChart 
+          data={marketsForCoin}
+          configuration={CHART_OPTIONS[0]}
+        />
+        <BarChart
+          data={marketsForCoin}
+          configuration={CHART_OPTIONS[1]}
+        />
       </TabPanelComponent>
     </>
   );

@@ -11,6 +11,16 @@ export interface Coin {
   marketCapUSD: string,
 }
 
+export interface MarketsForCoin {
+  name: string,
+  base: string,
+  quote: string,
+  price: number,
+  priceUSD: number,
+  volume: number,
+  volumeUSD: number
+  time: number
+}
 
 export const createEmptyCoin = (): Coin => ({
   id: '1',

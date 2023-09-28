@@ -17,3 +17,18 @@ export const mapCoinFromApiToVm = (
     }
     : viewModel.createEmptyCoin();
 };
+
+export const mapMarketsForCoinFromApiToVm = (
+  marketsForCoin: apiModel.MarketsForCoin
+): viewModel.MarketsForCoin => {
+  return {
+      priceUSD: marketsForCoin.price_usd,
+      volumeUSD: marketsForCoin.volume_usd,
+      ...marketsForCoin
+    }
+};
+
+export const mapMarketForCoinFromApiToVm = (
+  marketsForCoin: apiModel.MarketsForCoin[]
+): viewModel.MarketsForCoin[] =>
+  mapToCollection(marketsForCoin, p => mapMarketsForCoinFromApiToVm(p));
