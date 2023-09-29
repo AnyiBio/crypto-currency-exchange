@@ -16,7 +16,7 @@ jobs:
         run: npm run test
     
       - name: Create dev.env
-        run: echo ${{ vars.REACT_APP_API_COINS }} > dev.env
+        run: echo "REACT_APP_API_COINS=${{ vars.REACT_APP_API_COINS }}" > dev.env
 
       - name: Test e2e
         run: npm run test:e2e:ci
