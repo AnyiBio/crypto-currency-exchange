@@ -6,7 +6,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     env:
-        dev.env: ${{ vars.REACT_APP_API_COINS }}
+        REACT_APP_API_COINS: ${{ vars.REACT_APP_API_COINS }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
