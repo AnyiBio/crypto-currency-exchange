@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const base = require('./base');
 const helpers = require('./helpers');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(base, {
   mode: 'production',
