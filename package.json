@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://anyibio.github.io/crypto-currency-exchange/",
   "scripts": {
     "start": "run-p -l type-check:watch start:dev",
     "start:dev": "webpack serve --config ./config/webpack/dev.js --open",
