@@ -1,0 +1,33 @@
+name: CD workflow
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create prod.env
+        run: |
+          echo "REACT_APP_API_COINS=${{ secrets.REACT_APP_API_COINS }}" > prod.env
+          echo "REACT_APP_API_COIN=${{ secrets.REACT_APP_API_COIN }}" >> prod.env
+          echo "REACT_APP_API_MARKETS_COIN=${{ secrets.REACT_APP_API_MARKETS_COIN }}" >> prod.env
+
+      - name: Git config
+        run: |
+          git config --global user.email "anyi.jar@gmail.com"
+          git config --global user.name "Anyi"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: npm run deploy --r git@github.com:<your-repo>
