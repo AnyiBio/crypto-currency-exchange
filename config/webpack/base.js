@@ -20,6 +20,15 @@ module.exports = merge(
     entry: {
       app: ['regenerator-runtime/runtime', './index.tsx'],
     },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+        },
+      ],
+    },
     optimization: {
       runtimeChunk: 'single',
       splitChunks: {
