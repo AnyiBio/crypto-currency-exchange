@@ -14,9 +14,9 @@ jobs:
 
       - name: Create prod.env
         run: |
-          echo "REACT_APP_API_COINS=${{ secrets.REACT_APP_API_COINS }}" > prod.env
-          echo "REACT_APP_API_COIN=${{ secrets.REACT_APP_API_COIN }}" >> prod.env
-          echo "REACT_APP_API_MARKETS_COIN=${{ secrets.REACT_APP_API_MARKETS_COIN }}" >> prod.env
+          echo "REACT_APP_API_COINS=${{ vars.REACT_APP_API_COINS }}" > prod.env
+          echo "REACT_APP_API_COIN=${{ vars.REACT_APP_API_COIN }}" >> prod.env
+          echo "REACT_APP_API_MARKETS_COIN=${{ vars.REACT_APP_API_MARKETS_COIN }}" >> prod.env
 
       - name: Use SSH key
         run: |
