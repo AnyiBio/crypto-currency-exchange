@@ -24,12 +24,12 @@ export const CoinComponent: React.FunctionComponent<Props> = ({
     <>
       <AppBar position="static">
         <TabListComponent value={tab} onChange={setTab}>
-          <TabComponent label="Price" />
+          <TabComponent label="Information" />
           <TabComponent label="Market Cap"/>
         </TabListComponent>
       </AppBar>
       <TabPanelComponent value={tab} index={0}>
-        <CardDataCoinComponent {...coin}/>
+        <CardDataCoinComponent coin={coin}/>
       </TabPanelComponent>
       <TabPanelComponent value={tab} index={1}>
         <BarChart 

@@ -17,7 +17,7 @@ export const CoinContainer: React.FunctionComponent = () => {
 
   const onLoadCoin = async () => {
     try {
-      const apiCoin = await trackPromise(getCoinById(id));
+      const [ apiCoin ] = await trackPromise(getCoinById(id));
       const apiMarketForCoin = await trackPromise(getMarketsForCoin(id))
       const viewModelCoin = mapCoinFromApiToVm(apiCoin);
       const viewModelMarketForCoin = mapMarketForCoinFromApiToVm(apiMarketForCoin);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { TypographyCardComponent } from './typography-card-coin.component';
 
-interface Props {
+interface Coin {
   symbol: string;
   name: string;
   nameId: string;
@@ -14,37 +14,33 @@ interface Props {
   marketCapUSD: string;
 }
 
+interface Props {
+  coin: Coin
+}
+
 export const CardDataCoinComponent: React.FunctionComponent<Props> = ({
-  symbol,
-  name,
-  nameId,
-  rank,
-  priceUSD,
-  percentChange24h,
-  percentChange1h,
-  percentChange7d,
-  marketCapUSD,
+  coin
 }) => {
   return (
     <Card>
       <CardContent>
         <Typography variant="h5" component="div">
-          {name}
+          {coin.name}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
-          {symbol} ({nameId})
+          {coin.symbol} {coin.nameId}
         </Typography>
         <Typography variant="body1">
-          Rank: {rank}
+          Rank: {coin.rank}
         </Typography>
         <Typography variant="body1">
-          Price (USD): {priceUSD}
+          Price (USD): {coin.priceUSD}
         </Typography>
-        <TypographyCardComponent value={percentChange1h} text={'1h Change:'}/>
-        <TypographyCardComponent value={percentChange24h} text={'24h Change:'}/>
-        <TypographyCardComponent value={percentChange7d} text={'7d Change:'}/>
+        <TypographyCardComponent value={coin.percentChange1h} text={'1h Change:'}/>
+        <TypographyCardComponent value={coin.percentChange24h} text={'24h Change:'}/>
+        <TypographyCardComponent value={coin.percentChange7d} text={'7d Change:'}/>
         <Typography variant="body1">
-          Market Cap (USD): {marketCapUSD}
+          Market Cap (USD): {coin.marketCapUSD}
         </Typography>
       </CardContent>
     </Card>
