@@ -20,18 +20,18 @@ module.exports = merge(
     entry: {
       app: ['regenerator-runtime/runtime', './index.tsx'],
     },
-    output: {
-      path: helpers.resolveFromRootPath('dist'),
-      publicPath: '/',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            chunks: 'all',
+            name: 'vendor',
+            test: /[\\/]node_modules[\\/]/,
+            enforce: true,
+          },
         },
-      ],
+      },
     },
     plugins: [
       new HtmlWebpackPlugin({

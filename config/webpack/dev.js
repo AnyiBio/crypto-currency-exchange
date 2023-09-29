@@ -7,6 +7,7 @@ module.exports = merge(base, {
   mode: 'development',
   devtool: 'eval-source-map',
   output: {
+    path: helpers.resolveFromRootPath('dist'),
     filename: '[name].js',
   },
   devServer: {
