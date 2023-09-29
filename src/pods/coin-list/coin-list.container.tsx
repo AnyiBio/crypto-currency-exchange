@@ -16,7 +16,7 @@ export const CoinListContainer: React.FunctionComponent = () => {
 
   const onLoadCoinList = async () => {
     try {
-      const apiCoinList = await trackPromise(getCoins('filter'));
+      const apiCoinList = await trackPromise(getCoins());
       const viewModelCoinList = mapCoinListFromApiToVm(apiCoinList);
       setCoins(viewModelCoinList);
     } catch (error) {

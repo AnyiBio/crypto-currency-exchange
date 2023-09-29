@@ -17,6 +17,7 @@ export const search = css`
 export const table = css`
   display: flex;
   flex-direction: column;
+  overflow-x: initial;
 `;
 
 export const pagination = css`

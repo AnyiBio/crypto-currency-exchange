@@ -64,7 +64,7 @@ export const TableComponent: React.FunctionComponent<Props> = (props) => {
           />
         )}
         <TableContainer className={classes.table} component={Paper}>
-          <Table {...tableProps}>
+          <Table stickyHeader {...tableProps}>
             <HeaderComponent headerGroups={headerGroups} />
             <BodyComponent
               rows={rows}
