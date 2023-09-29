@@ -1,11 +1,12 @@
 describe('Coins screen', () => {
+  beforeEach(() => {
+    cy.intercept('GET', 'process.env.REACT_APP_API_COIN', { fixture: 'coins.json' })
+  })
   it('should number of coins be 25 in first page', () => {
     // ARRANGE
 
     // ACT
-    cy.intercept('/').as('coins')
     cy.visit('/')
-    cy.wait('@coins')
 
     // ASSERT
     const elements = cy.get('table tbody').children();
@@ -17,9 +18,7 @@ describe('Coins screen', () => {
     // ARRANGE
 
     // ACT
-    cy.intercept('/').as('coins')
     cy.visit('/')
-    cy.wait('@coins')
     cy.findByRole('textbox').type("Golem");
 
     // ASSERT
