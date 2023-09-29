@@ -36,4 +36,4 @@ jobs:
         run: npm run build
 
       - name: Deploy
-        run: npm run deploy --r git@github.com:AnyiBio/crypto-currency-exchange.git
+        run: npm run deploy -- -r git@github.com:AnyiBio/crypto-currency-exchange.git
